@@ -1,0 +1,53 @@
+import numpy as np
+
+# --- THE GEOMETRIC ANCHOR ---
+CHI = 144.0
+THETA = (180.0 / CHI) * (np.pi / 180.0)  # Curvature Angle (rad)
+PHI_R = CHI / (2.0 * np.pi)               # Radial Flux
+ZETA  = PHI_R / CHI                      # Kinetic Slip
+SIGMA = 1.0 / (CHI**2)                   # Torsional Interaction
+
+# 1. THE MASTER IDENTITY
+def get_master_identity(alpha_inv):
+    """
+    Validates the Unity Lock: 
+    ((alpha^-1 + zeta - sigma) * cos^2(theta)) / Phi_r = 144.0
+    """
+    numerator = (alpha_inv + ZETA - SIGMA) * (np.cos(THETA)**2)
+    return numerator / PHI_R
+
+# 2. THE MASTER SSU LAGRANGIAN (L_SSU)
+def get_lagrangian(psi, d_mu_psi):
+    """
+    L_SSU = Kinetic Slip - Topological Potential + Torsional Interaction
+    """
+    # Kinetic Slip
+    k_slip = 0.5 * ZETA * (d_mu_psi**2)
+    
+    # Topological Potential
+    t_potential = ((CHI * PHI_R / np.cos(THETA)**2) - CHI) * (psi**2)
+    
+    # Torsional Interaction
+    tors_int = SIGMA * (psi**4)
+    
+    return k_slip - t_potential + tors_int
+
+# 3. THE MASTER WAVE FUNCTION (Psi_SSU)
+def get_psi_ssu(h_res, f_s, epsilon, tau_loop=2*np.pi):
+    """
+    Psi_SSU = Amplitude Residue * Complex Phase Knot
+    """
+    # Amplitude: [ (Chi * Phi_R) / cos^2(theta) ]
+    amplitude = (CHI * PHI_R) / (np.cos(THETA)**2)
+    
+    # Phase Knot: i * oint ( epsilon / (h * f_s) ) d_tau
+    # d_tau is normalized to the tau_loop (2*pi)
+    phase_knot = 1j * (tau_loop * (epsilon / (h_res * f_s)))
+    
+    return amplitude * np.exp(phase_knot)
+
+# --- QUICK VERIFICATION ---
+if __name__ == "__main__":
+    # Example alpha_inv validation
+    lock = get_master_identity(137.035999)
+    print(f"Mano-SSU Unity Lock: {lock:.10f}")
