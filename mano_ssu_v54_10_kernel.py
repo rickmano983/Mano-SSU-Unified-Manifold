@@ -68,6 +68,6 @@ if __name__ == "__main__":
     print(f"1/ALPHA (FINAL): {res['1/alpha_final']:.9f}") 
     print(f"MU (FINAL):      {res['mu_final']:.9f}") 
     print(f"---------------------------------------") 
-    print(f"STATUS: DEDUCTIVE ERA FULL CLOSURE")
+    print(f"STATUS: FULL CLOSURE")
 Stockton, CA 95207
 
