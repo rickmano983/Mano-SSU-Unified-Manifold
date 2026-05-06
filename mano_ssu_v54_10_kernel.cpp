@@ -83,7 +83,7 @@ int main() {
     std::cout << "1/ALPHA (FINAL): " << res.alpha_inv_final << std::endl;
     std::cout << "MU (FINAL):      " << res.mu_final << std::endl;
     std::cout << "---------------------------------------" << std::endl;
-    std::cout << "STATUS: DEDUCTIVE ERA FULL CLOSURE" << std::endl;
+    std::cout << "STATUS: FULL CLOSURE" << std::endl;
 
     return 0;
 }
