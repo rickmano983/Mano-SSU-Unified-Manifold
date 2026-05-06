@@ -69,15 +69,5 @@ if __name__ == "__main__":
     print(f"MU (FINAL):      {res['mu_final']:.9f}") 
     print(f"---------------------------------------") 
     print(f"STATUS: DEDUCTIVE ERA FULL CLOSURE")
-
-
-
-Confidence Plus Insurance Services
-An Allstate Agency
-Rick Mano
-Account Manager
-T: (209) 235-6584
-F: (833) 989-3565
-6852 Pacific Avenue
 Stockton, CA 95207
 
