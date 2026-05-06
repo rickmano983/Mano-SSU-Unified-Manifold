@@ -2,7 +2,7 @@
 # STATUS: MASTER STABILITY LOCK [144.000000] ATTAINED
 # REPO: https://github.com
 # AUTHOR: MANO, RICHARD
-
+# https://github.com/rickmano983/Mano-SSU-Unified-Manifold
 ## 1. CONCEPTUAL ARCHITECTURE (THE ZERO-PARAMETER PROTOCOL)
 The Mano-SSU (Static Spherical Universe) framework is a purely deductive geometric model. It replaces empirical "free parameters" with fixed Topological Residues. Every fundamental constant of physics is derived from a single integer anchor: the 144.0 Stator (chi).
 
